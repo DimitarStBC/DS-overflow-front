@@ -106,8 +106,6 @@ export default {
   methods: {
     onSubmit(event) {
       event.preventDefault();
-      console.log(this.form.password);
-      console.log(this.passwordRep + " repe");
       if (this.form.password != this.passwordRep) {
         this.toast(
           "b-toaster-bottom-right",
@@ -119,8 +117,8 @@ export default {
       } else {
         axios
           .post("/register", {
-            email: this.form.email,
             name: this.form.name,
+            email: this.form.email,
             password: this.form.password,
           })
           .then((response) => console.log(response));
